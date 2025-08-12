@@ -1,0 +1,12 @@
+{
+  "name": "pins-website",
+  "version": "1.0.0",
+  "description": "Official website for Pins app",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site, no build needed'"
+  },
+  "keywords": ["pins", "app", "website", "landing"],
+  "author": "Pins Team",
+  "license": "MIT"
+}
