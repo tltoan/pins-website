@@ -758,3 +758,98 @@ body {
 .animate-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
+
+/* Support Page Styles */
+.support-contact {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.contact-method {
+  padding: 24px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.contact-method h3 {
+  color: var(--color-text);
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.contact-method p {
+  color: var(--color-text-secondary);
+  margin-bottom: 12px;
+}
+
+.contact-method ol {
+  color: var(--color-text-secondary);
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.contact-method ol li {
+  margin-bottom: 8px;
+}
+
+.support-email {
+  display: inline-block;
+  color: var(--color-accent);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.support-email:hover {
+  color: var(--color-accent-light);
+}
+
+.contact-method a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.contact-method a:hover {
+  color: var(--color-accent-light);
+}
+
+.support-tips {
+  margin-top: 64px;
+  padding: 32px;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.support-tips h3 {
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.support-tips p {
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.support-tips ul {
+  list-style: none;
+  padding: 0;
+}
+
+.support-tips ul li {
+  color: var(--color-text-secondary);
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.support-tips ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+}
