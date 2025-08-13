@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Add hover sound effect (optional)
         pin.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) rotate(-45deg) scale(1.1)';
+            this.style.transform = 'translateY(-5px) scale(1.1)';
         });
         
         pin.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) rotate(-45deg) scale(1)';
+            this.style.transform = 'translateY(0) scale(1)';
         });
     });
     
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const x = (mouseX - 0.5) * speed;
             const y = (mouseY - 0.5) * speed;
             
-            pin.style.transform = `translate(${x}px, ${y}px) rotate(-45deg)`;
+            pin.style.transform = `translate(${x}px, ${y}px)`;
         });
     });
 });
@@ -53,16 +53,16 @@ const style = document.createElement('style');
 style.textContent = `
     @keyframes pulse {
         0% {
-            transform: translateY(0) rotate(-45deg) scale(1);
-            box-shadow: 0 5px 20px rgba(204, 0, 0, 0.6);
+            transform: translateY(0) scale(1);
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
         }
         50% {
-            transform: translateY(-5px) rotate(-45deg) scale(1.2);
-            box-shadow: 0 10px 40px rgba(204, 0, 0, 1);
+            transform: translateY(-5px) scale(1.2);
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
         }
         100% {
-            transform: translateY(0) rotate(-45deg) scale(1);
-            box-shadow: 0 5px 20px rgba(204, 0, 0, 0.6);
+            transform: translateY(0) scale(1);
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
         }
     }
 `;
