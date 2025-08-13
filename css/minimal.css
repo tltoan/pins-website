@@ -49,6 +49,7 @@ body {
     border-radius: 24px;
     overflow: hidden;
     background: #111;
+    margin-top: 40px;
 }
 
 .world-map {
@@ -117,24 +118,6 @@ body {
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
-/* Profile Indicator */
-.profile-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #333;
-    cursor: pointer;
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* Journey Page Styles */
 .content-wrapper {
