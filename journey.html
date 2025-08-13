@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pins - Your Journey</title>
+    <link rel="stylesheet" href="/css/minimal.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h1 class="main-title">Pin your memories,<br>map your moments.</h1>
+                
+                <ul class="features-list">
+                    <li>No Ads</li>
+                    <li>No Algorithm</li>
+                    <li>Privacy First</li>
+                </ul>
+                
+                <p class="description">
+                    You get a map of all the pins you made during the day. A mapping of whatever moments you had that day.
+                </p>
+                
+                <a href="#" class="cta-button">Get The App</a>
+            </div>
+            
+            <div class="map-content">
+                <div class="journey-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48385.40156413541!2d-74.0059413!3d40.7127753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1674165683425!5m2!1sen!2sus"
+                        style="border:0; width: 100%; height: 100%; border-radius: 24px;"
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                    
+                    <!-- Journey path overlay -->
+                    <svg class="journey-path" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path class="path-line" d="M 20 30 Q 35 25 40 35 T 50 40 Q 60 45 65 35 T 75 50" />
+                    </svg>
+                    
+                    <!-- Journey pins -->
+                    <div class="journey-pin" style="left: 20%; top: 30%;"></div>
+                    <div class="journey-pin" style="left: 35%; top: 25%;"></div>
+                    <div class="journey-pin" style="left: 40%; top: 35%;"></div>
+                    <div class="journey-pin" style="left: 50%; top: 40%;"></div>
+                    <div class="journey-pin" style="left: 60%; top: 45%;"></div>
+                    <div class="journey-pin" style="left: 65%; top: 35%;"></div>
+                    <div class="journey-pin" style="left: 75%; top: 50%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/minimal.js"></script>
+</body>
+</html>

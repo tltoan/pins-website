@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pins - Map Your Moments</title>
+    <link rel="stylesheet" href="/css/minimal.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Pinned It</h1>
+        </header>
+        
+        <div class="map-container">
+            <div id="worldMap" class="world-map">
+                <!-- Embedded world map with pins -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d55565170.29301636!2d-10.076422571429454!3d20.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1674165683425!5m2!1sen!2sus"
+                    style="border:0; width: 100%; height: 100%; border-radius: 24px;"
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                
+                <!-- Animated pins -->
+                <div class="pin" data-location="california" style="left: 10%; top: 35%;"></div>
+                <div class="pin" data-location="oregon" style="left: 9%; top: 28%;"></div>
+                <div class="pin" data-location="canada" style="left: 25%; top: 20%;"></div>
+                <div class="pin" data-location="mexico" style="left: 15%; top: 50%;"></div>
+                <div class="pin" data-location="brazil" style="left: 35%; top: 65%;"></div>
+                <div class="pin" data-location="peru" style="left: 28%; top: 70%;"></div>
+                <div class="pin" data-location="chile" style="left: 30%; top: 85%;"></div>
+                <div class="pin" data-location="atlantic" style="left: 45%; top: 40%;"></div>
+                <div class="pin" data-location="portugal" style="left: 52%; top: 35%;"></div>
+                <div class="pin" data-location="italy" style="left: 58%; top: 32%;"></div>
+                <div class="pin" data-location="belarus" style="left: 65%; top: 22%;"></div>
+                <div class="pin" data-location="iraq" style="left: 70%; top: 38%;"></div>
+                <div class="pin" data-location="sudan" style="left: 65%; top: 55%;"></div>
+                <div class="pin" data-location="botswana" style="left: 62%; top: 78%;"></div>
+                <div class="pin" data-location="pacific" style="left: 18%; top: 88%;"></div>
+            </div>
+        </div>
+        
+        <div class="profile-indicator">
+            <img src="/images/profile-placeholder.jpg" alt="Profile" class="profile-image">
+        </div>
+    </div>
+    
+    <script src="/js/minimal.js"></script>
+</body>
+</html>
