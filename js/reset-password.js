@@ -123,14 +123,40 @@ async function handleResetPassword(e) {
             submitButton.disabled = false;
             submitButton.textContent = 'Update Password';
         } else {
-            showMessage('Password updated successfully! Redirecting to login...', 'success');
+            // Hide the form
+            document.getElementById('resetForm').style.display = 'none';
+            
+            // Show success message with app instructions
+            const container = document.querySelector('.container');
+            container.innerHTML = `
+                <div class="header">
+                    <div class="logo">✅</div>
+                    <h1 class="title">Password Reset Successful!</h1>
+                    <p class="subtitle">Your password has been updated</p>
+                </div>
+                
+                <div style="text-align: center; padding: 32px 0;">
+                    <p style="color: #A0A0A0; font-size: 18px; margin-bottom: 24px;">
+                        You can now log in to the Pins app with your new password
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+                        <button onclick="window.location.href='https://apps.apple.com/app/pins'" 
+                                style="display: inline-flex; align-items: center; gap: 8px; background-color: #000; border: 1px solid #333; padding: 12px 24px; border-radius: 8px; color: #FFF; font-size: 16px; cursor: pointer; text-decoration: none;">
+                            <span style="font-size: 20px;">🍎</span> Open in App Store
+                        </button>
+                        
+                        <p style="color: #666; font-size: 14px;">or</p>
+                        
+                        <button onclick="window.location.href='/'" 
+                                style="background-color: transparent; color: #A0A0A0; border: none; font-size: 16px; cursor: pointer; padding: 12px; text-decoration: underline;">
+                            Return to Homepage
+                        </button>
+                    </div>
+                </div>
+            `;
             
             await supabase.auth.signOut();
-            
-            setTimeout(() => {
-                const loginUrl = '/login.html?message=' + encodeURIComponent('Password updated successfully');
-                window.location.href = loginUrl;
-            }, 2000);
         }
     } catch (error) {
         showMessage('An unexpected error occurred. Please try again.', 'error');
