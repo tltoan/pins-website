@@ -60,8 +60,8 @@ body {
 /* Pins */
 .pin {
     position: absolute;
-    width: 35px;
-    height: 45px;
+    width: 45px;
+    height: 55px;
     background: url('/images/Pin-Tack.png') no-repeat center;
     background-size: contain;
     cursor: pointer;
