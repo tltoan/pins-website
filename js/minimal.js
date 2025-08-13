@@ -14,14 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 10);
         });
         
-        // Add hover sound effect (optional)
-        pin.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) scale(1.1)';
-        });
-        
-        pin.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
+        // Hover effect is now handled by CSS
     });
     
     // Navigate to journey page on map click (for demo)
