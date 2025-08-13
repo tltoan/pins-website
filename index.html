@@ -406,5 +406,15 @@
     </footer>
 
     <script src="/js/main.js"></script>
+    <script>
+      // Handle Supabase password recovery redirect
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check if this is a password recovery redirect
+        if (window.location.hash && window.location.hash.includes('type=recovery')) {
+          // Redirect to reset password page with the hash
+          window.location.href = '/reset-password.html' + window.location.hash;
+        }
+      });
+    </script>
   </body>
 </html>
