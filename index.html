@@ -260,12 +260,6 @@
             </div>
         </div>
         
-        <!-- Simple footer -->
-        <footer style="position: absolute; bottom: 20px; right: 20px; display: flex; gap: 20px; font-size: 14px;">
-            <a href="#journey" style="color: #666; text-decoration: none;">Journey</a>
-            <a href="/privacy.html" style="color: #666; text-decoration: none;">Privacy</a>
-            <a href="/support.html" style="color: #666; text-decoration: none;">Support</a>
-        </footer>
     </div>
     
     <!-- Journey Section -->
@@ -288,27 +282,23 @@
             </div>
             
             <div class="map-content">
-                <div class="journey-map">
-                    <img src="/images/nyc-map.png" 
-                         alt="NYC Journey Map" 
-                         style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
-                    
-                    <!-- Journey path overlay -->
-                    <svg class="journey-path" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path class="path-line" d="M 20 30 Q 35 25 40 35 T 50 40 Q 60 45 65 35 T 75 50" />
-                    </svg>
-                    
-                    <!-- Journey pins -->
-                    <div class="journey-pin" style="left: 20%; top: 30%;"></div>
-                    <div class="journey-pin" style="left: 35%; top: 25%;"></div>
-                    <div class="journey-pin" style="left: 40%; top: 35%;"></div>
-                    <div class="journey-pin" style="left: 50%; top: 40%;"></div>
-                    <div class="journey-pin" style="left: 60%; top: 45%;"></div>
-                    <div class="journey-pin" style="left: 65%; top: 35%;"></div>
-                    <div class="journey-pin" style="left: 75%; top: 50%;"></div>
+                <div class="screenshots-container">
+                    <img src="/images/SS1.png" alt="App Screenshot 1" class="app-screenshot">
+                    <img src="/images/SS2.png" alt="App Screenshot 2" class="app-screenshot">
+                    <img src="/images/SS3.png" alt="App Screenshot 3" class="app-screenshot">
                 </div>
             </div>
         </div>
+        
+        <!-- Footer -->
+        <footer style="position: absolute; bottom: 20px; left: 5%; right: 5%; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+            <span style="color: #666;">© 2025 Pins. All rights reserved.</span>
+            <div style="display: flex; gap: 20px;">
+                <a href="/privacy.html" style="color: #666; text-decoration: none;">Privacy</a>
+                <a href="/terms.html" style="color: #666; text-decoration: none;">Terms of Service</a>
+                <a href="/support.html" style="color: #666; text-decoration: none;">Support</a>
+            </div>
+        </footer>
     </div>
     
     <script src="/js/minimal.js"></script>

@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add click interaction to pins
     pins.forEach((pin, index) => {
+        // Mark animation as complete after drop animation finishes
+        setTimeout(() => {
+            pin.classList.add('animation-complete');
+        }, 600 + (index * 30)); // Faster completion for quicker hover availability
+        
         pin.addEventListener('click', function() {
             // Pulse animation on click
             this.style.animation = 'none';
@@ -14,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 10);
         });
         
-        // Hover effect is now handled by CSS
+        // Hover effect is handled by CSS
     });
     
     // Navigate to journey page on map click (for demo)
@@ -25,20 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Add subtle parallax effect on mouse move
-    document.addEventListener('mousemove', function(e) {
-        const pins = document.querySelectorAll('.pin');
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        pins.forEach((pin, index) => {
-            const speed = (index + 1) * 0.5;
-            const x = (mouseX - 0.5) * speed;
-            const y = (mouseY - 0.5) * speed;
-            
-            pin.style.transform = `translate(${x}px, ${y}px)`;
-        });
-    });
+    // Remove parallax effect as it conflicts with hover animation
 });
 
 // Add pulse animation
