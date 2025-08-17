@@ -20,23 +20,24 @@ body {
 
 .container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
-    padding: 0;
+    padding: 20px;
 }
 
 /* Header */
 .header {
-    position: fixed;
-    top: 20px;
+    position: absolute;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     z-index: 100;
+    width: 100%;
 }
 
 .title {
@@ -48,12 +49,14 @@ body {
 
 /* Map Container */
 .map-container {
-    width: 100%;
-    height: 100vh;
+    width: 90%;
+    max-width: 1400px;
+    height: calc(100vh - 140px);
     position: relative;
+    border-radius: 24px;
     overflow: hidden;
     background: #111;
-    margin: 0;
+    margin-top: 100px;
 }
 
 .world-map {
@@ -137,11 +140,12 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    width: 100%;
+    width: 90%;
     max-width: 1400px;
-    height: 100vh;
-    align-items: center;
-    padding: 0 60px;
+    min-height: auto;
+    align-items: flex-start;
+    padding: 100px 0 20px 0;
+    margin: 0 auto;
 }
 
 .text-content {
@@ -204,12 +208,16 @@ body {
 }
 
 .map-content {
-    width: 100%;
-    height: 75vh;
+    width: 90%;
+    max-width: 1400px;
+    height: auto;
+    min-height: 650px;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 40px 0;
+    margin: 0 auto;
 }
 
 .journey-map {
@@ -252,29 +260,78 @@ body {
     z-index: 5;
 }
 
-/* Screenshots Container */
+/* Screenshots - Desktop (show all 3 side by side) */
+.screenshots-slider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .screenshots-container {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    position: relative;
+    background: transparent;
+    margin: 0 auto;
+    border-radius: 0;
+}
+
+.screenshots-wrapper {
     display: flex;
     gap: 25px;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    width: auto;
     padding: 30px;
+    transition: none;
 }
 
+.screenshots-container::-webkit-scrollbar {
+    display: none;
+}
+
+
 .app-screenshot {
-    flex: 1;
-    width: 100%;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 350px;
     max-height: 65vh;
     height: auto;
     object-fit: contain;
-    border-radius: 30px;
+    border-radius: 0;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease;
 }
 
 .app-screenshot:hover {
     transform: scale(1.03);
+}
+
+/* Slider Dots - Hidden on desktop */
+.slider-dots {
+    display: none;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: rgba(255, 255, 255, 0.9);
+    width: 24px;
+    border-radius: 5px;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
 }
 
 /* Legal/Support page styles */
@@ -358,30 +415,31 @@ body {
     /* Container adjustments */
     .container {
         height: 100vh;
-        padding: 0;
+        padding: 10px;
     }
     
     /* Header adjustments */
     .header {
-        position: fixed;
-        top: 10px;
+        position: absolute;
+        top: 15px;
         left: 50%;
         transform: translateX(-50%);
         margin: 0;
+        width: 100%;
     }
     
     .title {
-        font-size: 32px;
+        font-size: 48px;
         letter-spacing: -1px;
     }
     
     /* Map container mobile */
     .map-container {
-        width: 100%;
-        height: 100vh;
+        width: calc(100% - 20px);
+        height: calc(100vh - 100px);
         max-height: none;
-        margin: 0;
-        border-radius: 0;
+        margin-top: 60px;
+        border-radius: 16px;
     }
     
     /* Journey section mobile */
@@ -408,6 +466,14 @@ body {
         gap: 12px;
     }
     
+    .features-list li::before {
+        display: none;
+    }
+    
+    .features-list li {
+        padding-left: 0;
+    }
+    
     .description {
         font-size: 16px;
         line-height: 1.4;
@@ -419,54 +485,192 @@ body {
         margin: 0 auto;
     }
     
-    /* Screenshots mobile */
+    /* Screenshots mobile - Slider without border radius */
     .screenshots-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px 10px;
+        width: calc(100% - 20px);
+        height: 60vh;
+        max-height: 500px;
+        border-radius: 0;
+        margin: 0 auto;
+        overflow: hidden;
+        background: transparent;
+    }
+    
+    .screenshots-wrapper {
+        width: 300%;
+        height: 100%;
+        display: flex;
+        padding: 0;
+        gap: 0;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .app-screenshot {
-        max-height: 400px;
-        width: 100%;
-        max-width: 300px;
+        width: 33.333%;
+        height: 100%;
+        flex: 0 0 33.333%;
+        max-width: none;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    /* Show dots on mobile */
+    .slider-dots {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
     }
     
     .map-content {
-        height: auto;
+        width: 100%;
+        min-height: auto;
+        padding: 20px 10px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .screenshots-slider {
+        width: 100%;
+        max-width: none;
     }
     
     /* Pins mobile */
     .pin {
-        width: 20px;
-        height: 26px;
+        width: 55px;
+        height: 68px;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
     }
+    
+    /* Hide most pins on mobile, show only key cities */
+    .pin {
+        display: none;
+    }
+    
+    /* Show and spread out only key pins on mobile */
+    .pin[data-location="seattle"],
+    .pin[data-location="losangeles"],
+    .pin[data-location="newyork"],
+    .pin[data-location="miami"],
+    .pin[data-location="chicago"],
+    .pin[data-location="london"],
+    .pin[data-location="paris"],
+    .pin[data-location="berlin"],
+    .pin[data-location="rome"],
+    .pin[data-location="madrid"],
+    .pin[data-location="tokyo"],
+    .pin[data-location="seoul"],
+    .pin[data-location="shanghai"],
+    .pin[data-location="hongkong"],
+    .pin[data-location="sydney"],
+    .pin[data-location="melbourne"],
+    .pin[data-location="dubai"],
+    .pin[data-location="singapore"],
+    .pin[data-location="bangkok"],
+    .pin[data-location="moscow"],
+    .pin[data-location="beijing"],
+    .pin[data-location="mumbai"],
+    .pin[data-location="delhi"],
+    .pin[data-location="cairo"],
+    .pin[data-location="lagos"],
+    .pin[data-location="johannesburg"],
+    .pin[data-location="capetown"],
+    .pin[data-location="buenosaires"],
+    .pin[data-location="riodejaneiro"],
+    .pin[data-location="saopaulo"],
+    .pin[data-location="mexicocity"],
+    .pin[data-location="toronto"],
+    .pin[data-location="vancouver"] {
+        display: block;
+    }
+    
+    /* Spread out pins more on mobile - adjusted positions */
+    .pin[data-location="seattle"] { left: 6% !important; top: 25% !important; }
+    .pin[data-location="losangeles"] { left: 8% !important; top: 35% !important; }
+    .pin[data-location="newyork"] { left: 26% !important; top: 30% !important; }
+    .pin[data-location="miami"] { left: 23% !important; top: 40% !important; }
+    .pin[data-location="chicago"] { left: 21% !important; top: 32% !important; }
+    .pin[data-location="london"] { left: 46% !important; top: 24% !important; }
+    .pin[data-location="paris"] { left: 50% !important; top: 28% !important; }
+    .pin[data-location="berlin"] { left: 53% !important; top: 26% !important; }
+    .pin[data-location="rome"] { left: 52% !important; top: 32% !important; }
+    .pin[data-location="madrid"] { left: 47% !important; top: 33% !important; }
+    .pin[data-location="tokyo"] { left: 89% !important; top: 34% !important; }
+    .pin[data-location="seoul"] { left: 85% !important; top: 33% !important; }
+    .pin[data-location="shanghai"] { left: 83% !important; top: 38% !important; }
+    .pin[data-location="hongkong"] { left: 79% !important; top: 43% !important; }
+    .pin[data-location="sydney"] { left: 90% !important; top: 73% !important; }
+    .pin[data-location="melbourne"] { left: 88% !important; top: 76% !important; }
+    .pin[data-location="dubai"] { left: 64% !important; top: 40% !important; }
+    .pin[data-location="singapore"] { left: 76% !important; top: 58% !important; }
+    .pin[data-location="bangkok"] { left: 75% !important; top: 50% !important; }
+    .pin[data-location="moscow"] { left: 60% !important; top: 22% !important; }
+    .pin[data-location="beijing"] { left: 80% !important; top: 31% !important; }
+    .pin[data-location="mumbai"] { left: 68% !important; top: 45% !important; }
+    .pin[data-location="delhi"] { left: 70% !important; top: 39% !important; }
+    .pin[data-location="cairo"] { left: 56% !important; top: 38% !important; }
+    .pin[data-location="lagos"] { left: 48% !important; top: 55% !important; }
+    .pin[data-location="johannesburg"] { left: 56% !important; top: 71% !important; }
+    .pin[data-location="capetown"] { left: 53% !important; top: 75% !important; }
+    .pin[data-location="buenosaires"] { left: 28% !important; top: 73% !important; }
+    .pin[data-location="riodejaneiro"] { left: 34% !important; top: 67% !important; }
+    .pin[data-location="saopaulo"] { left: 32% !important; top: 69% !important; }
+    .pin[data-location="mexicocity"] { left: 14% !important; top: 46% !important; }
+    .pin[data-location="toronto"] { left: 22% !important; top: 28% !important; }
+    .pin[data-location="vancouver"] { left: 9% !important; top: 26% !important; }
     
     .pin.animation-complete:hover {
-        transform: translateY(-10px) translateX(-3px) rotate(-15deg) scale(1.2);
+        transform: translateY(-15px) translateX(-5px) rotate(-15deg) scale(1.15);
     }
     
-    /* Footer mobile */
-    footer {
-        position: relative !important;
-        bottom: auto !important;
-        margin-top: 40px;
-        padding: 20px 10px;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+    /* Footer mobile - 2x2 grid */
+    .footer-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+        gap: 20px !important;
+        margin: 40px 20px 20px !important;
+        padding: 20px !important;
+        width: calc(100% - 40px) !important;
+        max-width: none !important;
+        font-size: 14px !important;
     }
     
-    footer div {
-        flex-direction: column;
-        gap: 10px !important;
+    .footer-grid span {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        text-align: left !important;
+    }
+    
+    .footer-grid .footer-privacy {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        text-align: right !important;
+    }
+    
+    .footer-grid .footer-terms {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        text-align: left !important;
+    }
+    
+    .footer-grid .footer-support {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        text-align: right !important;
     }
 }
 
 /* Extra small devices */
 @media (max-width: 480px) {
     .title {
-        font-size: 28px;
+        font-size: 40px;
     }
     
     .main-title {
@@ -474,8 +678,14 @@ body {
     }
     
     .map-container {
-        height: 100vh;
+        height: calc(100vh - 90px);
         max-height: none;
+        margin-top: 50px;
+    }
+    
+    .screenshots-container {
+        height: 70vh;
+        max-height: 450px;
     }
     
     .features-list {

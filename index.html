@@ -924,7 +924,7 @@
     </div>
 
     <!-- Journey Section -->
-    <div id="journey" class="container" style="background: #000; margin-top: 0;">
+    <div id="journey" class="container" style="background: #000; margin-top: 0; height: auto;">
       <div class="content-wrapper">
         <div class="text-content">
           <h1 class="main-title">Pin your memories,<br />map your moments.</h1>
@@ -944,47 +944,50 @@
         </div>
 
         <div class="map-content">
-          <div class="screenshots-container">
-            <img
-              src="/images/SS1.png"
-              alt="App Screenshot 1"
-              class="app-screenshot" />
-            <img
-              src="/images/SS2.png"
-              alt="App Screenshot 2"
-              class="app-screenshot" />
-            <img
-              src="/images/SS3.png"
-              alt="App Screenshot 3"
-              class="app-screenshot" />
+          <div class="screenshots-slider">
+            <div class="screenshots-container">
+              <div class="screenshots-wrapper" id="screenshotsWrapper">
+                <img
+                  src="/images/SS1.png"
+                  alt="App Screenshot 1"
+                  class="app-screenshot" />
+                <img
+                  src="/images/SS2.png"
+                  alt="App Screenshot 2"
+                  class="app-screenshot" />
+                <img
+                  src="/images/SS3.png"
+                  alt="App Screenshot 3"
+                  class="app-screenshot" />
+              </div>
+            </div>
+            <div class="slider-dots">
+              <span class="dot active" onclick="goToSlide(0)"></span>
+              <span class="dot" onclick="goToSlide(1)"></span>
+              <span class="dot" onclick="goToSlide(2)"></span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Footer -->
       <footer
+        class="footer-grid"
         style="
-          position: absolute;
-          bottom: 20px;
-          left: 5%;
-          right: 5%;
+          position: relative;
+          margin: 20px auto 15px;
+          padding: 10px 0;
+          width: 90%;
+          max-width: 1400px;
           display: flex;
           justify-content: space-between;
           align-items: center;
           font-size: 14px;
         ">
-        <span style="color: #666">© 2025 Pins. All rights reserved.</span>
-        <div style="display: flex; gap: 20px">
-          <a href="/privacy.html" style="color: #666; text-decoration: none"
-            >Privacy</a
-          >
-          <a href="/terms.html" style="color: #666; text-decoration: none"
-            >Terms of Service</a
-          >
-          <a href="/support.html" style="color: #666; text-decoration: none"
-            >Support</a
-          >
-        </div>
+        <span style="color: #666">© 2025 Pinned It</span>
+        <a href="/privacy.html" style="color: #666; text-decoration: none" class="footer-privacy">Privacy</a>
+        <a href="/terms.html" style="color: #666; text-decoration: none" class="footer-terms">Terms of Service</a>
+        <a href="/support.html" style="color: #666; text-decoration: none" class="footer-support">Support</a>
       </footer>
     </div>
 

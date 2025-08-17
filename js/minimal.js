@@ -33,6 +33,76 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remove parallax effect as it conflicts with hover animation
 });
 
+// Screenshots Slider Functionality
+let currentSlide = 0;
+
+function slideScreenshots(direction) {
+    const wrapper = document.getElementById('screenshotsWrapper');
+    const screenshots = wrapper?.querySelectorAll('.app-screenshot');
+    
+    if (!wrapper || !screenshots.length) return;
+    
+    currentSlide += direction;
+    
+    // Limit slides
+    const maxSlide = screenshots.length - 1;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide > maxSlide) currentSlide = maxSlide;
+    
+    // Apply transform - move by 33.333% for each slide (since wrapper is 300% width)
+    const offset = currentSlide * 33.333;
+    wrapper.style.transform = `translateX(-${offset}%)`;
+    
+    // Update button states
+    updateSliderButtons();
+}
+
+// Make function global
+window.slideScreenshots = slideScreenshots;
+
+function updateSliderButtons() {
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+    const wrapper = document.getElementById('screenshotsWrapper');
+    const screenshots = wrapper?.querySelectorAll('.app-screenshot');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (prevBtn && nextBtn && screenshots) {
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === screenshots.length - 1;
+    }
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Function to go to specific slide
+function goToSlide(slideIndex) {
+    const wrapper = document.getElementById('screenshotsWrapper');
+    const screenshots = wrapper?.querySelectorAll('.app-screenshot');
+    
+    if (!wrapper || !screenshots) return;
+    
+    currentSlide = slideIndex;
+    const offset = currentSlide * 33.333;
+    wrapper.style.transform = `translateX(-${offset}%)`;
+    updateSliderButtons();
+}
+
+// Make function global
+window.goToSlide = goToSlide;
+
+// Initialize slider buttons on load
+document.addEventListener('DOMContentLoaded', function() {
+    updateSliderButtons();
+});
+
 // Add pulse animation
 const style = document.createElement('style');
 style.textContent = `
